@@ -1,0 +1,5 @@
+/*
+This project uses the **American Community Survey (ACS)** data from the U.S. Census Bureau, accessed via the `bigquery-public-data.census_bureau_acs` dataset, to analyze trends on income, poverty, education, unemployment, inequality, and other quality of life metrics.
+Skills used: Joins, CTE's, Case statments, Windows Functions, Aggregate Functions, Ordering and ranking, Data Formatting and Cleaning
+*/
+
