@@ -3,7 +3,8 @@ This project uses the **American Community Survey (ACS)** data from the U.S. Cen
 Skills used: Joins, CTE's, Case statments, Windows Functions, Aggregate Functions, Ordering and ranking, Data Formatting and Cleaning
 */
 
-##Poverty Rate + Median Income by State:
+---Poverty Rate + Median Income by State:
+
 SELECT
  geo_id,
  median_income,
@@ -14,7 +15,9 @@ FROM
  `bigquery-public-data.census_bureau_acs.state_2019_5yr`
 ORDER BY poverty_rate DESC;
 
-##Attach Proper State names:
+
+---Attach Proper State names:
+
 WITH state_fips AS (
  SELECT '01' AS fips, 'Alabama' AS state UNION ALL
  SELECT '02', 'Alaska' UNION ALL
@@ -69,7 +72,6 @@ WITH state_fips AS (
  SELECT '56', 'Wyoming'
 )
 
-
 SELECT
  fips_lookup.state,
  acs.median_income,
@@ -95,7 +97,8 @@ FROM
  `bigquery-public-data.census_bureau_acs.state_2019_5yr`
 
 
- ##UNEMPLOYMENT RATE BY STATE:
+---UNEMPLOYMENT RATE BY STATE:
+ 
 SELECT
  geo_id,
  unemployed_pop,
@@ -106,7 +109,9 @@ FROM
 ORDER BY unemployment_rate DESC;
 
 
-##RENT BURDEN BY STATE:
+
+---RENT BURDEN BY STATE:
+
 SELECT
  geo_id,
  percent_income_spent_on_rent
@@ -115,7 +120,9 @@ FROM
 ORDER BY percent_income_spent_on_rent DESC;
 
 
-##Window Function & Rank:
+
+--Window Function & Rank:
+
 "Give each state a rank based on their income, from highest to lowest — but still keep all the individual state rows."
 WITH ranked_income AS (
  SELECT
@@ -125,7 +132,6 @@ WITH ranked_income AS (
  FROM `bigquery-public-data.census_bureau_acs.state_2019_5yr`
 )
 
-
 SELECT
  fips,
  median_income,
@@ -133,7 +139,10 @@ SELECT
 FROM ranked_income
 ORDER BY income_rank;
 
-##Case When to Categorize Poverty:
+
+
+--Case When to Categorize Poverty:
+
 “If the poverty rate is higher than 20%, label it ‘High Poverty’. If it's 12–20%, call it 'Moderate'. Otherwise, it's 'Low Poverty'.”
 SELECT
  geo_id,
