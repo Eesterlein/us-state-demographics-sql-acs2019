@@ -29,7 +29,7 @@ This project analyzes 2019 American Community Survey (ACS) data by state using S
 
 [🌐 View the Live Looker Studio Dashboard »](https://lookerstudio.google.com/s/mNjbN_gsXoQ)
 
-![Dashboard Preview](dashboard-preview.png)
+![Dashboard Preview](US_State_Demographics_Dashboard_(ACS_2019).pdf)
 
 ## 📂 Files Included
 - `state_demographics_analysis.sql` – Full SQL script with data transformations
